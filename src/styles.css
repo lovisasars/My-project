@@ -11,15 +11,11 @@ form {
   margin-top: 30px;
 }
 
-input {
-  color: #1f6f8b;
-  border 1px solid #1f6f8b,
-  font-family: "Quicksand", sans-serif;
-}
-
 h1,
 h2,
-h3, h4, h5 {
+h3,
+h4,
+h5 {
   text-align: center;
   color: #1c2b2d;
   font-family: "Quicksand", sans-serif;
@@ -35,12 +31,10 @@ h2 {
 
 h3 {
   font-size: 20px;
-  
 }
 h4 {
   font-size: 60px;
 }
-
 
 .week {
   text-align: center;
@@ -53,7 +47,6 @@ h4 {
 
 .card {
   background: #d0e8f2;
-  
 }
 
 p {
@@ -77,6 +70,4 @@ a:hover {
   font-style: normal;
   text-emphasis: none;
   text-decoration: none;
-  
 }
-
