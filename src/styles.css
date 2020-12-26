@@ -71,3 +71,7 @@ a:hover {
   text-emphasis: none;
   text-decoration: none;
 }
+
+.celsius-symbol {
+  font-size: 30px;
+}
