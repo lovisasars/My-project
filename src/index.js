@@ -13,8 +13,8 @@ function showTemp(response) {
   let h2 = document.querySelector("h2");
   h2.innerHTML = `${currentCity}`;
   let temperature = Math.round(response.data.main.temp);
-  let h1 = document.querySelector("#temp-number");
-  h1.innerHTML = temperature;
+  let tempNumber = document.querySelector("#temp-number");
+  tempNumber.innerHTML = temperature;
 }
 
 function getPosition(event) {
