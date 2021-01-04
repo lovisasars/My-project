@@ -22,18 +22,20 @@ h5 {
 }
 
 h1 {
-  font-size: 90px;
+  font-size: 60px;
+  color: #0a043c;
 }
 
 h2 {
   font-size: 35px;
+  color: #14274e;
 }
 
 h3 {
   font-size: 20px;
 }
 h4 {
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .week {
@@ -43,6 +45,7 @@ h4 {
 
 .col-sm-2 {
   color: #1f6f8b;
+  font-size: 2s0px;
 }
 
 .card {
@@ -50,7 +53,7 @@ h4 {
 }
 
 p {
-  color: #99a8b2;
+  color: #14274e;
   text-align: center;
 }
 
@@ -73,5 +76,7 @@ a:hover {
 }
 
 .celsius-symbol {
+  position: relative;
   font-size: 30px;
+  top: -20px;
 }
