@@ -31,10 +31,11 @@ function changeCity(event) {
   let apiUrlName = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
   axios.get(apiUrlName).then(changeTemp);
 }
+
 function changeTemp(response) {
   let temperature = Math.round(response.data.main.temp);
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = temperature;
+  let tempNumber = document.querySelector("#temp-number");
+  tempNumber.innerHTML = temperature;
 }
 
 let form = document.querySelector("#search-city");
