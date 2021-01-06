@@ -45,7 +45,7 @@ h4 {
 
 .col-sm-2 {
   color: #1f6f8b;
-  font-size: 2s0px;
+  font-size: 20px;
 }
 
 .card {
@@ -79,4 +79,24 @@ a:hover {
   position: relative;
   font-size: 30px;
   top: -20px;
+}
+
+.col-form-label {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid;
+  font-size: 14px;
+  border-color: #738598;
+}
+
+.btn-light {
+  padding: 5px;
+  border-color: #738598;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f3f9fb;
+}
+
+.btn-light:hover {
+  background-color: #99a8b2;
 }
