@@ -12,7 +12,13 @@ function showTemp(response) {
   h2.innerHTML = `${currentCity}`;
   let temperature = Math.round(response.data.main.temp);
   let tempNumber = document.querySelector("#temp-number");
+  let weatherIcon = document.querySelector("#icon");
   tempNumber.innerHTML = temperature;
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function getPosition(event) {
@@ -34,11 +40,13 @@ function changeTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let tempNumber = document.querySelector("#temp-number");
   let weatherIcon = document.querySelector("#icon");
+
   tempNumber.innerHTML = temperature;
   weatherIcon.setAttribute(
-    `src`,
-    `http://openweathermap.org/img/wn/10d@2x.png`
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 let form = document.querySelector("#search-city");
