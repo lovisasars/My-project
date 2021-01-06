@@ -1,5 +1,4 @@
 function showPosition(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "8eb322b04629a0b2fdac0ac79561148e";
@@ -8,7 +7,6 @@ function showPosition(position) {
 }
 
 function showTemp(response) {
-  console.log(response);
   let currentCity = response.data.name;
   let h2 = document.querySelector("h2");
   h2.innerHTML = `${currentCity}`;
@@ -35,7 +33,12 @@ function changeCity(event) {
 function changeTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let tempNumber = document.querySelector("#temp-number");
+  let weatherIcon = document.querySelector("#icon");
   tempNumber.innerHTML = temperature;
+  weatherIcon.setAttribute(
+    `src`,
+    `http://openweathermap.org/img/wn/10d@2x.png`
+  );
 }
 
 let form = document.querySelector("#search-city");
