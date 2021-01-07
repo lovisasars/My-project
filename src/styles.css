@@ -100,3 +100,12 @@ a:hover {
 .btn-light:hover {
   background-color: #99a8b2;
 }
+
+.active {
+  color: #1c2b2d;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+}
