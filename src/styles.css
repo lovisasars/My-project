@@ -75,9 +75,9 @@ a:hover {
   text-decoration: none;
 }
 
-.celsius-symbol {
+.units {
   position: relative;
-  font-size: 30px;
+  font-size: 25px;
   top: -20px;
 }
 
