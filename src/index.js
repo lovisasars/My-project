@@ -31,7 +31,7 @@ function showForecast(response) {
   let dayOne = document.querySelector("#day-one");
   let iconOne = document.querySelector("#icon-one");
   let tempOne = document.querySelector("#temp-one");
-  dayOne.innerHTML = response.data.list[0].dt_txt;
+  dayOne.innerHTML = `${days[now.getDay() + 1]}`;
   tempOne.innerHTML = Math.round(response.data.list[0].main.temp);
   iconOne.setAttribute(
     "src",
@@ -41,7 +41,7 @@ function showForecast(response) {
   let dayTwo = document.querySelector("#day-two");
   let iconTwo = document.querySelector("#icon-two");
   let tempTwo = document.querySelector("#temp-two");
-  dayTwo.innerHTML = response.data.list[8].dt_txt;
+  dayTwo.innerHTML = `${days[now.getDay() + 2]}`;
   tempTwo.innerHTML = Math.round(response.data.list[8].main.temp);
   iconTwo.setAttribute(
     "src",
@@ -51,7 +51,7 @@ function showForecast(response) {
   let dayThree = document.querySelector("#day-three");
   let iconThree = document.querySelector("#icon-three");
   let tempThree = document.querySelector("#temp-three");
-  dayThree.innerHTML = response.data.list[16].dt_txt;
+  dayThree.innerHTML = `${days[now.getDay() + 3]}`;
   tempThree.innerHTML = Math.round(response.data.list[16].main.temp);
   iconThree.setAttribute(
     "src",
@@ -61,7 +61,7 @@ function showForecast(response) {
   let dayFour = document.querySelector("#day-four");
   let iconFour = document.querySelector("#icon-four");
   let tempFour = document.querySelector("#temp-four");
-  dayFour.innerHTML = response.data.list[24].dt_txt;
+  dayFour.innerHTML = `${days[now.getDay() + 4]}`;
   tempFour.innerHTML = Math.round(response.data.list[24].main.temp);
   iconFour.setAttribute(
     "src",
@@ -71,7 +71,7 @@ function showForecast(response) {
   let dayFive = document.querySelector("#day-five");
   let iconFive = document.querySelector("#icon-five");
   let tempFive = document.querySelector("#temp-five");
-  dayFive.innerHTML = response.data.list[32].dt_txt;
+  dayFive.innerHTML = `${days[now.getDay() + 5]}`;
   tempFive.innerHTML = Math.round(response.data.list[32].main.temp);
   iconFive.setAttribute(
     "src",
@@ -142,6 +142,13 @@ let celsiusTemperature = null;
 
 let now = new Date();
 let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
   "Sunday",
   "Monday",
   "Tuesday",
