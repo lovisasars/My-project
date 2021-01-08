@@ -13,6 +13,7 @@ function showTemp(response) {
   let celsiusTemperature = Math.round(response.data.main.temp);
   let tempNumber = document.querySelector("#temp-number");
   let weatherIcon = document.querySelector("#icon");
+
   tempNumber.innerHTML = celsiusTemperature;
   weatherIcon.setAttribute(
     "src",
@@ -99,6 +100,7 @@ function searchCity(event) {
 }
 
 function showIcon(response) {
+  console.log(response.data);
   let weatherIcon = document.querySelector("#icon");
   weatherIcon.setAttribute(
     "src",
@@ -111,6 +113,11 @@ function changeTemp(response) {
   celsiusTemperature = Math.round(response.data.main.temp);
   let tempNumber = document.querySelector("#temp-number");
   tempNumber.innerHTML = celsiusTemperature;
+  let humidity = document.querySelector("#humidity");
+  let windspeed = document.querySelector("#windspeed");
+
+  humidity.innerHTML = response.data.main.humidity;
+  windspeed.innerHTML = Math.round(response.data.wind.speed);
 }
 function showFahrenheit(event) {
   event.preventDefault();

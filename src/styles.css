@@ -113,12 +113,19 @@ a:hover {
   text-decoration: none;
 }
 
+.hum-wind {
+  font-size: 14px;
+  color: #1c2b2d;
+
+  font-family: "Quicksand", sans-serif;
+}
+
 #day-one,
 #day-two,
 #day-three,
 #day-four,
 #day-five {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 #icon-one,
@@ -127,4 +134,10 @@ a:hover {
 #icon-four,
 #icon-five {
   width: 50px;
+}
+
+#humidity,
+#windspeed {
+  font-weight: bold;
+  color: #0a043c;
 }
