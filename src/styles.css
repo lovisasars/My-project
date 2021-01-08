@@ -45,11 +45,14 @@ h4 {
 
 .col-sm-2 {
   color: #1f6f8b;
-  font-size: 20px;
 }
 
 .card {
   background: #d0e8f2;
+}
+
+.card-text {
+  font-size: 15px;
 }
 
 p {
@@ -108,4 +111,20 @@ a:hover {
 
 .active:hover {
   text-decoration: none;
+}
+
+#day-one,
+#day-two,
+#day-three,
+#day-four,
+#day-five {
+  font-size: 12px;
+}
+
+#icon-one,
+#icon-two,
+#icon-three,
+#icon-four,
+#icon-five {
+  width: 50px;
 }

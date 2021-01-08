@@ -27,6 +27,58 @@ function getPosition(event) {
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", getPosition);
 
+function showForecast(response) {
+  let dayOne = document.querySelector("#day-one");
+  let iconOne = document.querySelector("#icon-one");
+  let tempOne = document.querySelector("#temp-one");
+  dayOne.innerHTML = response.data.list[0].dt_txt;
+  tempOne.innerHTML = Math.round(response.data.list[0].main.temp);
+  iconOne.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.list[0].weather[0].icon}@2x.png`
+  );
+
+  let dayTwo = document.querySelector("#day-two");
+  let iconTwo = document.querySelector("#icon-two");
+  let tempTwo = document.querySelector("#temp-two");
+  dayTwo.innerHTML = response.data.list[8].dt_txt;
+  tempTwo.innerHTML = Math.round(response.data.list[8].main.temp);
+  iconTwo.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.list[8].weather[0].icon}@2x.png`
+  );
+
+  let dayThree = document.querySelector("#day-three");
+  let iconThree = document.querySelector("#icon-three");
+  let tempThree = document.querySelector("#temp-three");
+  dayThree.innerHTML = response.data.list[16].dt_txt;
+  tempThree.innerHTML = Math.round(response.data.list[16].main.temp);
+  iconThree.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.list[16].weather[0].icon}@2x.png`
+  );
+
+  let dayFour = document.querySelector("#day-four");
+  let iconFour = document.querySelector("#icon-four");
+  let tempFour = document.querySelector("#temp-four");
+  dayFour.innerHTML = response.data.list[24].dt_txt;
+  tempFour.innerHTML = Math.round(response.data.list[24].main.temp);
+  iconFour.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.list[24].weather[0].icon}@2x.png`
+  );
+
+  let dayFive = document.querySelector("#day-five");
+  let iconFive = document.querySelector("#icon-five");
+  let tempFive = document.querySelector("#temp-five");
+  dayFive.innerHTML = response.data.list[32].dt_txt;
+  tempFive.innerHTML = Math.round(response.data.list[32].main.temp);
+  iconFive.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.list[32].weather[0].icon}@2x.png`
+  );
+}
+
 function changeCity(city) {
   let h2 = document.querySelector("h2");
   h2.innerHTML = `${city}`;
@@ -35,6 +87,9 @@ function changeCity(city) {
 
   apiUrlName = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
   axios.get(apiUrlName).then(showIcon);
+
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
+  axios.get(apiUrlForecast).then(showForecast);
 }
 
 function searchCity(event) {
