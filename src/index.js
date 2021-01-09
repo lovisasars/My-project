@@ -3,8 +3,14 @@ function showPosition(position) {
   let lon = position.coords.longitude;
   let apiKey = "8eb322b04629a0b2fdac0ac79561148e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemp);
+  axios.get(apiUrl).then(showTemp).then(changeCity);
 }
+
+function getPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+let locationButton = document.querySelector("#location-button");
+locationButton.addEventListener("click", getPosition);
 
 function showTemp(response) {
   let currentCity = response.data.name;
@@ -13,7 +19,6 @@ function showTemp(response) {
   let celsiusTemperature = Math.round(response.data.main.temp);
   let tempNumber = document.querySelector("#temp-number");
   let weatherIcon = document.querySelector("#icon");
-
   tempNumber.innerHTML = celsiusTemperature;
   weatherIcon.setAttribute(
     "src",
@@ -22,11 +27,18 @@ function showTemp(response) {
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
-function getPosition(event) {
-  navigator.geolocation.getCurrentPosition(showPosition);
+function changeCity(city) {
+  let h2 = document.querySelector("h2");
+  h2.innerHTML = `${city}`;
+  let apiUrlName = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
+  axios.get(apiUrlName).then(changeTemp);
+
+  apiUrlName = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
+  axios.get(apiUrlName).then(showIcon);
+
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
+  axios.get(apiUrlForecast).then(showForecast);
 }
-let locationButton = document.querySelector("#location-button");
-locationButton.addEventListener("click", getPosition);
 
 function showForecast(response) {
   let dayOne = document.querySelector("#day-one");
@@ -78,19 +90,6 @@ function showForecast(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.list[32].weather[0].icon}@2x.png`
   );
-}
-
-function changeCity(city) {
-  let h2 = document.querySelector("h2");
-  h2.innerHTML = `${city}`;
-  let apiUrlName = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
-  axios.get(apiUrlName).then(changeTemp);
-
-  apiUrlName = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
-  axios.get(apiUrlName).then(showIcon);
-
-  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=8eb322b04629a0b2fdac0ac79561148e&units=metric`;
-  axios.get(apiUrlForecast).then(showForecast);
 }
 
 function searchCity(event) {
